@@ -43,7 +43,6 @@ def note(request):
             color = note_data['color']
         )        
 
-        print('Labels: ', note_data['labels'])
         if note_data['labels']:
             for label in note_data['labels']:
                 new_label, _ = Label.objects.get_or_create(user=request.user, label=label)

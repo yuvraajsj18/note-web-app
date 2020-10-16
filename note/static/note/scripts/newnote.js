@@ -3,7 +3,13 @@ import {getNoteSummaryDiv} from './notes.js';
 export async function createNewNote() {
     const text = document.querySelector("#note-text").innerText.trim();
 
-    const labels = document.querySelector("#tags").value.split(',');
+    let labels;
+    if (document.querySelector("#tags").trim() === "") {
+        labels = [];
+    }
+    else {
+        labels = document.querySelector("#tags").value.split(',');
+    }
     const color = document.querySelector("#color").value.toLowerCase();
 
     if (text === "") {

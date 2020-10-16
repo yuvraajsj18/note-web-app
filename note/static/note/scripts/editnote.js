@@ -24,7 +24,15 @@ export async function editNote() {
         document.querySelector('#edit').click();
     }
     const text = document.querySelector("#edit-note-text").innerText.trim();
-    const labels = document.querySelector("#edit-tags").value.split(',');
+
+    let labels;
+    if (document.querySelector("#edit-tags").trim() === "") {
+        labels = [];
+    }
+    else {
+        labels = document.querySelector("#edit-tags").value.split(',');
+    }
+    
     const color = document.querySelector("#edit-color").value.toLowerCase();
 
     if (text === "") {
