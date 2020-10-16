@@ -14,7 +14,7 @@ export async function createNewNote() {
         return;
     }
 
-    const res = await fetch('/note', {
+    const res = await fetch('note', {
         method: "POST",
         headers: {
             'X-CSRFToken': Cookies.get('csrftoken'),
