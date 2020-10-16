@@ -1,0 +1,44 @@
+{% extends 'note/layout.html' %}
+
+{% block title %}
+    Note | Login
+{% endblock %}
+
+{% block main %}
+    <h1 class="display-4 text-center">Login</h1>
+
+    <form action="{% url 'note:login' %}" method="post" id="login-form" novalidate>
+        {% csrf_token %}
+        {% if message %}
+          <div class="alert alert-warning text-center">{{message}}</div>
+        {% endif %}
+        <div class="form-group">
+            <label for="id_username">Username</label>
+            <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" required>
+            <div class="invalid-feedback">Please enter username.</div>
+        </div>
+        <div class="form-group">
+            <label for="id_password">Password</label>
+            <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+            <div class="invalid-feedback">Please enter password</div>
+        </div>
+        <input type="submit" value="Login" class="btn btn-primary d-block mx-auto">
+    </form>
+
+    <div class="alert text-center">
+        Don't have an account? <a class="text-primary" href="{% url 'note:register' %}">Register Here.</a>
+    </div>
+
+    <script>
+        'use strict';
+        // get the login form
+        const loginForm = document.querySelector("#login-form");
+        loginForm.addEventListener('submit', (e) => {
+            // check form validity
+            if (loginForm.checkValidity() === false) {
+                e.preventDefault();
+                loginForm.classList.add('was-validated');
+            }
+        });
+    </script>
+{% endblock %}

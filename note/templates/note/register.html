@@ -1,0 +1,56 @@
+{% extends 'note/layout.html' %}
+
+{% block title %}
+    Note | Register
+{% endblock %}
+
+{% block main %}
+    <h1 class="display-4 text-center">Register</h1>
+
+    {% include 'note/utils/form_error.html' with errors=register_form.non_fields_errors %}
+    <form action="{% url 'note:register' %}" method="post" id="register-form" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_username">Username</label>
+            {% include 'note/utils/form_error.html' with errors=register_form.username.errors %}
+            <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" value="{{register_form.username.value}}" required>
+            <div class="invalid-feedback">Please enter username.</div>
+        </div>
+        <div class="form-group">
+            <label for="id_email">Email</label>
+            {% include 'note/utils/form_error.html' with errors=register_form.email.errors %}
+            <input type="email" name="email" id="id_email" class="form-control" placeholder="Email" value="{{register_form.email.value}}" required>
+            <div class="invalid-feedback">Please enter email.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="id_password">Password</label>
+            {% include 'note/utils/form_error.html' with errors=register_form.password.errors %}
+            <input type="password" name="password" id="id_password" class="form-control" placeholder="Password" required>
+            <div class="invalid-feedback">Please enter password.</div>
+        </div>
+        <div class="form-group">
+            <label for="id_password_confirmation">Confirm Password</label>
+            {% include 'note/utils/form_error.html' with errors=register_form.password_confirmation.errors %}
+            <input type="password" name="password_confirmation" id="id_password_confirmation" class="form-control" placeholder="Retype Password" required>
+            <div class="invalid-feedback">Please confirm your password.</div>
+        </div>
+        <input type="submit" value="Register" class="btn btn-primary d-block mx-auto">
+    </form>
+
+    <div class="alert text-center">
+        Already have an account? <a class="text-success" href="{% url 'note:login' %}">Login Here.</a>
+    </div>
+
+    <script>
+        'use strict';
+
+        const registerForm = document.querySelector('#register-form');
+        registerForm.addEventListener('submit', (e) => {
+            if (registerForm.checkValidity() === false) {
+                e.preventDefault();
+                registerForm.classList.add('was-validated');
+            }
+        });
+    </script>
+{% endblock %}

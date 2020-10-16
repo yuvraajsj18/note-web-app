@@ -1,0 +1,58 @@
+{% extends 'note/layout.html' %}
+
+{% block main %}
+    <div id="note-box" class="rounded mt-4">
+        <div contenteditable="true" id="note-text" aria-multiline="true" role="textbox" aria-label="take a note...">
+        </div>
+        <div class="invalid-feedback alert alert-danger text-center py-2 my-1">Please enter some text</div>
+        <div class="controls p-2 row mx-0 w-100">
+            <input type="text" class="form-control col-sm-12 col-md-8" id="tags" placeholder="Comma separated labels">
+            <div class="div row mx-0 col-md-4 px-0">
+                <select name="color" id="color" class="custom-select col-6">
+                    <option>White</option>
+                    <option>Red</option>
+                    <option>Green</option>
+                    <option>Blue</option>
+                    <option>Purple</option>
+                </select>
+                <button class="save-btn btn btn-light btn-outline-dark border font-weight-bold px-4 py-1 col-6" id="create-note" type="submit">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="labels" class="container text-center">
+        <h1 class="display-4 mb-4">Labels</h1>
+        <div class="message alert alert-info mt-5 text-center"></div>
+        <div class="row pt-5" id="label-btns" style="min-height: 100vh;">
+        </div>
+    </div>
+
+    <div id="message" class="alert alert-info mt-5 text-center"></div>
+
+    <div id="notes" class="card-columns mt-5">
+    </div>
+
+    <div id="edit-note-box" class="rounded mt-4">
+        <div id="edit-menu" class="d-flex justify-content-end">
+            <button id="edit" class="btn btn-secondary rounded-0">Edit</button>
+            <button id="archive" class="btn btn-warning rounded-0">Archive/Unarchive</button>
+            <button id="delete" class="btn btn-danger rounded-0">Delete</button>
+        </div>
+        <div contenteditable="false" id="edit-note-text" aria-multiline="true" role="textbox" aria-label="take a note...">
+        </div>
+        <div class="invalid-feedback alert alert-danger text-center py-2 my-1">Please enter some text</div>
+        <div class="controls p-2 row mx-0 w-100">
+            <input type="text" class="form-control col-sm-12 col-md-8" id="edit-tags" placeholder="Comma separated labels">
+            <div class="div row mx-0 col-md-4 px-0">
+                <select name="color" id="edit-color" class="custom-select col-6">
+                    <option>White</option>
+                    <option>Red</option>
+                    <option>Green</option>
+                    <option>Blue</option>
+                    <option>Purple</option>
+                </select>
+                <button class="save-btn btn btn-light btn-outline-dark border font-weight-bold px-4 py-1 col-6" id="edit-note" type="submit">Save</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

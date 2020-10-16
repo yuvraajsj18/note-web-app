@@ -1,0 +1,59 @@
+#register-form, #login-form {
+    max-width: 600px;
+    margin: auto;
+    padding: 26px;
+    background-color: lavender;
+    border-radius: 8px;
+}
+
+#main-nav a.nav-link {
+    margin-top: 1px;
+    font-size: 16px;
+}
+
+#note-box, #edit-note-box {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    max-width: 700px;
+    margin: auto;
+    border: 1px solid lightgray;
+    box-shadow: 0px 4px 7px 0px #6c757d;
+    font-size: 18px;
+}
+
+#edit-note-box {
+    max-width: 100%;
+    margin-bottom: 30px;
+    display: none;  /* Initally */
+}
+
+#note-text, #edit-note-text {
+    min-height: 150px;
+    padding: 20px;
+    width: 100%;
+    outline: none;
+}
+
+.note .card {
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.note .card:hover {
+    box-shadow: 0px 1px 6px 0px #6c757d;
+    transform: translateZ(0);
+}
+
+#labels {
+    display: none;
+}
+
+#message {
+    display: none;
+}
+
+.label-btn {
+    border-radius: 22px;
+    min-width: 150px;
+}

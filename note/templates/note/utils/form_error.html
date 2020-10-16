@@ -1,0 +1,7 @@
+{%if errors %}
+    <ol class="list-unstyled alert alert-danger">
+        {%for error in errors %}
+            <li>{{ error | escape}}</li>
+        {% endfor %}
+    </ol>
+{% endif %}
