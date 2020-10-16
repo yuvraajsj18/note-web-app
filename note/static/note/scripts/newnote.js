@@ -4,7 +4,7 @@ export async function createNewNote() {
     const text = document.querySelector("#note-text").innerText.trim();
 
     let labels;
-    if (document.querySelector("#tags").trim() === "") {
+    if (document.querySelector("#tags").value.trim() === "") {
         labels = [];
     }
     else {

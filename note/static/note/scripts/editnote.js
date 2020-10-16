@@ -26,7 +26,7 @@ export async function editNote() {
     const text = document.querySelector("#edit-note-text").innerText.trim();
 
     let labels;
-    if (document.querySelector("#edit-tags").trim() === "") {
+    if (document.querySelector("#edit-tags").value.trim() === "") {
         labels = [];
     }
     else {
