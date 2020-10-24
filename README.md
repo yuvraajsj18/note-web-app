@@ -72,7 +72,7 @@ Features Include:
 2. JavaScript for front-end.
 3. HTML
 4. CSS with Bootstrap.
-5. Sqlite3
+5. Postgres
 
 
 
